@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_header.html' %}
+            <div id="layoutSidenav_content">
+                <h1>Lista de Clientes</h1>
+<input type="submit" value="Criar Cliente" onclick="location.href = '{% url 'clientes:create' %}'">
+
+<ul>
+    {% for cliente in object_list %}
+    <li>{{ cliente.nome }} -
+        <a href="{% url 'clientes:update' pk=cliente.id %}">Editar</a> -
+        <a href="{% url 'clientes:detail' pk=cliente.id %}">Detalhar</a> -
+        <a href="{% url 'clientes:delete' pk=cliente.id %}">Apagar</a>
+    </li>
+
+
+    {% endfor %}
+</ul>
+            </div>
+{% include 'partials/_footer.html' %}
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_header.html' %}
+<h1>Detalhando cliente</h1>
+<h3>Nome: {{ cliente.nome }}</h3>
+<h3>Idade: {{ cliente.idade }}</h3>
+<h3>    <input type="submit" value="Voltar" onclick="location.href = '{% url 'clientes:list' %}'"></h3>
+{% include 'partials/_footer.html' %}
+{% endblock %}
+
