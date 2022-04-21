@@ -1,0 +1,1 @@
+web: gunicorn cadastro_django.wsgi
