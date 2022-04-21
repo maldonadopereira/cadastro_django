@@ -84,10 +84,15 @@ WSGI_APPLICATION = 'cadastro_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'dba10us8t196hv',
+            'USER': 'fmdztvbxpfiyid',
+            'PASSWORD': '4a837773fc3050cb55f78687be929831621a77a398b0da4883f67f0fa1221d06',
+            'HOST': 'ec2-3-218-171-44.compute-1.amazonaws.com',
+            'PORT': '5432',
+        }
     }
-}
+
 
 
 # Password validation
