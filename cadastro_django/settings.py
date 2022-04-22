@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'cadastro_django.wsgi.application'
 
 
 # Database Heroku
-'''DATABASES = {
+DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'dba10us8t196hv',
@@ -96,9 +96,9 @@ WSGI_APPLICATION = 'cadastro_django.wsgi.application'
             'PORT': '5432',
         }
     }
-'''
+
 # Database Local
-DATABASES = {
+'''DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'cadastro_dhmp',
@@ -108,7 +108,7 @@ DATABASES = {
             'PORT': '5432',
         }
     }
-
+'''
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
