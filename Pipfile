@@ -8,6 +8,8 @@ django = "*"
 gunicorn = "*"
 whitenoise = "*"
 psycopg2-binary = "*"
+django-localflavor = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 

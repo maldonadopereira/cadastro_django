@@ -5,13 +5,13 @@
 
 {% include 'partials/_header.html' %}
 <div>
-<h1>Adicionar Cliente</h1>
+<h1>Adicionar Produto</h1>
 
 <form method="post" action=".">
     {% csrf_token %}
     {{ form|crispy }}
     <input type="submit" value="Salvar">
-    <input type="reset" value="Cancelar" onclick="location.href = '{% url 'clientes:list' %}'">
+    <input type="reset" value="Cancelar" onclick="location.href = '{% url 'produtos:list' %}'">
 </form>
 </div>
 {% include 'partials/_footer.html' %}

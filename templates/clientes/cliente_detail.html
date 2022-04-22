@@ -4,10 +4,21 @@
 {% block content %}
 
 {% include 'partials/_header.html' %}
-<h1>Detalhando cliente</h1>
-<h3>Nome: {{ cliente.nome }}</h3>
-<h3>Idade: {{ cliente.idade }}</h3>
-<h3>    <input type="submit" value="Voltar" onclick="location.href = '{% url 'clientes:list' %}'"></h3>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Detalhar Cliente</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>Nome: {{cliente.nome}}</p>
+                                    <p>CPF: {{cliente.cpf}}</p>
+                                    <p>Telefone: {{cliente.telefone}} </p>
+                                    <p>CEP: {{cliente.cep}}</p>
+                                    <p>Enderço: {{cliente.endereco}}</p>
+                                </div>
+                            </div>
+
 {% include 'partials/_footer.html' %}
 {% endblock %}
+
+
 

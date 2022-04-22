@@ -6,8 +6,8 @@
 {% include 'partials/_header.html' %}
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Listar Clientes</h6>
-                                    <input type="submit" value="Adicionar Cliente" onclick="location.href = '{% url 'clientes:create' %}'">
+                                    <h6 class="m-0 font-weight-bold text-primary">Listar Fornecedores</h6>
+                                    <input type="submit" value="Adicionar Fornecedor" onclick="location.href = '{% url 'fornecedores:create' %}'">
                                 </div>
             <div id="layoutSidenav_content">
 
@@ -16,32 +16,32 @@
                             <div class="table-responsive">
                                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                     <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-								{% if cliente_list %}
+								{% if fornecedor_list %}
 
                                     <thead>
                                         <tr role="row">
                                             <th>#</th>
                                             <th>Name</th>
-                                            <th>CPF</th>
+                                            <th>CNPJ</th>
 											<th></th>
 											<th></th>
 											<th></th>
                                     </thead>
                                     <tbody>
-										{% for cliente in cliente_list %}
+										{% for fornecedor in fornecedor_list %}
                                         <tr>
-                                            <th scope="row">{{cliente.id}}</th>
-                                            <td>{{ cliente.nome }}</td>
-                                            <td>{{ cliente.cpf }}</td>
-                                            <td><a href="{% url 'clientes:update' pk=cliente.id %}"class="btn btn-warning btn-icon-split">
+                                            <th scope="row">{{fornecedor.id}}</th>
+                                            <td>{{ fornecedor.nome }}</td>
+                                            <td>{{ fornecedor.cnpj }}</td>
+                                            <td><a href="{% url 'fornecedores:update' pk=fornecedor.id %}"class="btn btn-warning btn-icon-split">
                                                 <span class="icon text-white-50">                                               </span>
                                                 <span class="text">Editar</span></a></td>
 
-                                            <td><a href="{% url 'clientes:detail' pk=cliente.id %}" class="btn btn-info btn-icon-split">
+                                            <td><a href="{% url 'fornecedores:detail' pk=fornecedor.id %}" class="btn btn-info btn-icon-split">
                                                 <span class="icon text-white-50">                                                </span>
                                                 <span class="text">Detalhar</span></a></td>
 
-											<td><a href="{% url 'clientes:delete' pk=cliente.id %}"class="btn btn-danger btn-icon-split">
+											<td><a href="{% url 'fornecedores:delete' pk=fornecedor.id %}"class="btn btn-danger btn-icon-split">
                                                 <span class="icon text-white-50">                                                </span>
                                                 <span class="text">Apagar</span></a></td>
                                         </tr>
@@ -49,7 +49,7 @@
                                     </tbody>
                                 </table>
 								{% else %}
-								<p>Ainda não há Clientes cadastrados</p>
+								<p>Ainda não há fornecedores cadastrados</p>
                                 {% endif %}
                             </div>
                         </div>

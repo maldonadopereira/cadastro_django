@@ -40,10 +40,14 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
 
     #3rd Party
+    'localflavor',
+    'crispy_forms',
 
     # Local Apps
     'core',
     'clientes',
+    'fornecedores',
+    'produtos',
 ]
 
 MIDDLEWARE = [
@@ -79,10 +83,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cadastro_django.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
+
+# Database Heroku
+'''DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'dba10us8t196hv',
@@ -92,8 +96,18 @@ DATABASES = {
             'PORT': '5432',
         }
     }
-
-
+'''
+# Database Local
+DATABASES = {
+    'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'cadastro_dhmp',
+            'USER': 'david',
+            'PASSWORD': '3284',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -138,3 +152,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Crispy Forms
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

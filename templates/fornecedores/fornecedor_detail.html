@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_header.html' %}
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Detalhar Fornecedor</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>Nome: {{fornecedor.nome}}</p>
+                                    <p>CNPJ: {{fornecedor.cpf}}</p>
+                                    <p>Telefone: {{fornecedor.telefone}} </p>
+                                    <p>CEP: {{fornecedor.cep}}</p>
+                                    <p>Enderço: {{fornecedor.endereco}}</p>
+                                    <p>Cidade: {{fornecedor.cidade}}</p>
+                                    <p>UF: {{fornecedor.uf}}</p>
+                                    <p>Email: {{fornecedor.email}}</p>
+                                </div>
+                            </div>
+
+{% include 'partials/_footer.html' %}
+{% endblock %}
+

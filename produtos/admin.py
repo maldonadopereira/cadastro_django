@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from clientes.models import Cliente
+from produtos.models import Produto
 
 
-@admin.register(Cliente)
-class ClienteAdmin(admin.ModelAdmin):
+@admin.register(Produto)
+class ProdutoAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome', 'criacao')
     list_display_links = ('nome',)

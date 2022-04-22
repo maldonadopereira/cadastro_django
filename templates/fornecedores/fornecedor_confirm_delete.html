@@ -5,13 +5,13 @@
 
 {% include 'partials/_header.html' %}
 
-<h1>Apagar Cliente</h1>
-<h5>Você tem certeza que quer apagar o cliente {{cliente.nome}}??</h5>
+<h1>Apagar Fornecedor</h1>
+<h5>Você tem certeza que quer apagar o fornecedor {{fornecedor.nome}}??</h5>
     <form action="." method="post">
     {% csrf_token %}
         {% form|crispy %}
     <input type="submit" value="Sim">
-    <input type="reset" value="Cancelar" onclick="location.href = '{% url 'clientes:list' %}'">
+    <input type="reset" value="Cancelar" onclick="location.href = '{% url 'fornecedores:list' %}'">
     </form>
 
 

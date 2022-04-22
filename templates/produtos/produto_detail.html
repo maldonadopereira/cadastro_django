@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_header.html' %}
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Detalhar Produto</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>Nome: {{produto.nome}}</p>
+                                    <p>Marca: {{produto.marca}}</p>
+                                    <p>Preço: {{produto.preco}} </p>
+                                    <p>Quantidade: {{produto.quantidade}}</p>
+                                    <p>Descrição: {{produto.descricao}}</p>
+                                    <p>Incluído em: {{produto.criacao}}</p>
+                                    <p>Incluído por: {{produto.user}}</p>
+                                    <p>Fornecedor: {{produto.fornecedor}}</p>
+                                </div>
+                            </div>
+
+{% include 'partials/_footer.html' %}
+{% endblock %}
+

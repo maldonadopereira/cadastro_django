@@ -1,8 +1,24 @@
 from django.db import models
+from localflavor.br.models import *
 
-class Cliente(models.Model):
-    nome = models.CharField(max_length=50)
-    idade = models.IntegerField(blank=True, null=True)
+class Base(models.Model):
+    criacao = models.DateTimeField(('Criado em: '), auto_now_add=True)
+    atualizacao = models.DateTimeField(('Atualizado em: '), auto_now=True)
+
+    class Meta:
+        abstract = True
+
+class Cliente(Base):
+    nome = models.CharField(max_length=100, null=False)
+    telefone = models.CharField(max_length=15, default='')
+    cep = BRPostalCodeField()
+    endereco = models.CharField(max_length=150, default='')
+    cpf = BRCPFField(null=False, unique=True)
+
+    class Meta:
+        verbose_name = 'Cliente'
+        verbose_name_plural = 'Clientes'
+        ordering = ['-criacao']
 
     def __str__(self):
         return self.nome

@@ -6,8 +6,8 @@
 {% include 'partials/_header.html' %}
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Listar Clientes</h6>
-                                    <input type="submit" value="Adicionar Cliente" onclick="location.href = '{% url 'clientes:create' %}'">
+                                    <h6 class="m-0 font-weight-bold text-primary">Listar Produtos</h6>
+                                    <input type="submit" value="Adicionar Produto" onclick="location.href = '{% url 'produtos:create' %}'">
                                 </div>
             <div id="layoutSidenav_content">
 
@@ -16,32 +16,32 @@
                             <div class="table-responsive">
                                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                     <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-								{% if cliente_list %}
+								{% if produtos_list %}
 
                                     <thead>
                                         <tr role="row">
                                             <th>#</th>
                                             <th>Name</th>
-                                            <th>CPF</th>
+                                            <th>Fornecedor</th>
 											<th></th>
 											<th></th>
 											<th></th>
                                     </thead>
                                     <tbody>
-										{% for cliente in cliente_list %}
+										{% for produto in produto_list %}
                                         <tr>
-                                            <th scope="row">{{cliente.id}}</th>
-                                            <td>{{ cliente.nome }}</td>
-                                            <td>{{ cliente.cpf }}</td>
-                                            <td><a href="{% url 'clientes:update' pk=cliente.id %}"class="btn btn-warning btn-icon-split">
+                                            <th scope="row">{{produto.id}}</th>
+                                            <td>{{ produto.nome }}</td>
+                                            <td>{{ produto.fornecedor }}</td>
+                                            <td><a href="{% url 'produtos:update' pk=produto.id %}"class="btn btn-warning btn-icon-split">
                                                 <span class="icon text-white-50">                                               </span>
                                                 <span class="text">Editar</span></a></td>
 
-                                            <td><a href="{% url 'clientes:detail' pk=cliente.id %}" class="btn btn-info btn-icon-split">
+                                            <td><a href="{% url 'produtos:detail' pk=produto.id %}" class="btn btn-info btn-icon-split">
                                                 <span class="icon text-white-50">                                                </span>
                                                 <span class="text">Detalhar</span></a></td>
 
-											<td><a href="{% url 'clientes:delete' pk=cliente.id %}"class="btn btn-danger btn-icon-split">
+											<td><a href="{% url 'produto:delete' pk=produtos.id %}"class="btn btn-danger btn-icon-split">
                                                 <span class="icon text-white-50">                                                </span>
                                                 <span class="text">Apagar</span></a></td>
                                         </tr>
@@ -49,7 +49,7 @@
                                     </tbody>
                                 </table>
 								{% else %}
-								<p>Ainda não há Clientes cadastrados</p>
+								<p>Ainda não há produtos cadastrados</p>
                                 {% endif %}
                             </div>
                         </div>
