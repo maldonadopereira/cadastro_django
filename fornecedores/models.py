@@ -1,12 +1,7 @@
 from django.db import models
 from localflavor.br.models import *
+from core.models import Base
 
-class Base(models.Model):
-    criacao = models.DateTimeField(('Criado em: '), auto_now_add=True)
-    atualizacao = models.DateTimeField(('Atualizado em: '), auto_now=True)
-
-    class Meta:
-        abstract = True
 
 class Fornecedor(Base):
     nome = models.CharField(max_length=30)

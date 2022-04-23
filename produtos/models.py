@@ -1,13 +1,7 @@
 from django.db import models
 from fornecedores.models import Fornecedor
 from django.contrib.auth.models import User
-
-class Base(models.Model):
-    criacao = models.DateTimeField(('Criado em: '), auto_now_add=True)
-    atualizacao = models.DateTimeField(('Atualizado em: '), auto_now=True)
-
-    class Meta:
-        abstract = True
+from core.models import Base
 
 
 class Produto(Base):
@@ -17,7 +11,7 @@ class Produto(Base):
     quantidade = models.IntegerField(default=0)
     descricao = models.TextField(max_length=500)
     disponivel = models.BooleanField(default=False)
-    user = models.ForeignKey(User, default='', on_delete=models.CASCADE, null=True)
+    #user = models.ForeignKey(User, default='', on_delete=models.CASCADE, null=True)
     fornecedor = models.ForeignKey(Fornecedor, default='', on_delete=models.CASCADE, null=True)
 
     class Meta:

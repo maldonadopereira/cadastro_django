@@ -2,21 +2,36 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index' %}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
 
+            <!-- USUÁRIO LOGADO-->
+
+            {% if user.is_authenticated %}
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
+            <!-- Nav Item - Index -->
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'index' %}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Index</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' user.id %}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Perfil</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'completa_cadastro' user.id %}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Completar Cadastro</span></a>
             </li>
 
             <!-- Divider -->
@@ -52,7 +67,37 @@
                     </div>
                 </div>
             </li>
+                        <!-- Divider -->
+            <hr class="sidebar-divider">
 
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_logout' %}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Logout</span></a>
+            </li>
+
+            {% else %}
+            <!-- USUÁRIO NÃO LOGADO-->
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Index</span></a>
+            </li>
+                        <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_login' %}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Entrar</span></a>
+            </li>
+                        <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_signup' %}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Cadastrar Usuário</span></a>
+            </li>
+        {% endif %}
 
         </ul>
         <!-- End of Sidebar -->
