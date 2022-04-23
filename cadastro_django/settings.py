@@ -37,18 +37,28 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'whitenoise.runserver_nostatic',
 
-    #3rd Party
+    # 3rd Party
     'localflavor',
     'crispy_forms',
 
+    # Django All Auth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
     # Local Apps
+    'users.apps.UsersConfig',
     'core',
     'clientes',
     'fornecedores',
     'produtos',
+
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,7 +76,8 @@ ROOT_URLCONF = 'cadastro_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'templates/account'),
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -86,7 +97,7 @@ WSGI_APPLICATION = 'cadastro_django.wsgi.application'
 
 
 # Database Heroku
-DATABASES = {
+'''DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'dba10us8t196hv',
@@ -96,19 +107,29 @@ DATABASES = {
             'PORT': '5432',
         }
     }
-
+'''
 # Database Local
-'''DATABASES = {
+DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'cadastro_dhmp',
+            'NAME': 'cadastro',
             'USER': 'david',
             'PASSWORD': '3284',
             'HOST': '127.0.0.1',
             'PORT': '5432',
         }
     }
-'''
+
+AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -156,3 +177,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #Crispy Forms
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
+
+# User Model
+
+AUTH_USER_MODEL = 'users.User'
+
+# Só precisa digitar a senha uma vez
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+# Não precisa de username
+ACCOUNT_USERNAME_REQUIRED = True
+# Método de autenticação: email
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+# Email obrigatório
+ACCOUNT_EMAIL_REQUIRED = False
+# Email único
+ACCOUNT_UNIQUE_EMAIL = True
+
+LOGIN_REDIRECT_URL = 'index'

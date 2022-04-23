@@ -10,6 +10,7 @@ whitenoise = "*"
 psycopg2-binary = "*"
 django-localflavor = "*"
 django-crispy-forms = "*"
+django-allauth = "*"
 
 [dev-packages]
 
