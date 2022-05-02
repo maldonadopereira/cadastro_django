@@ -11,4 +11,4 @@ class User(AbstractUser):
     endereco = models.CharField(max_length=150, default='', null=True)
     uf = BRStateField(null=True, default='',)
     cidade = models.CharField(max_length=50, default='',  null=True)
-    #foto_user = models.ImageField(upload_to='fotos/%d/%m/%Y', blank=True, default='')
+    foto_user = models.ImageField(upload_to='fotos/%d/%m/%Y', blank=True, default='')

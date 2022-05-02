@@ -7,6 +7,10 @@ class UserChangeForm(auth_forms.UserChangeForm):
         model = User
 
 
+
+
+
+
 class UserCreationForm(auth_forms.UserCreationForm):
     class Meta(auth_forms.UserCreationForm.Meta):
         model = User

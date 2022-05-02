@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% include 'partials/_header.html' %}
+<div>
+<h1>Editar Cadastro</h1>
+    <div class="col-lg-8 col-xlg-9 col-md-7">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action=".">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input type="submit" value="Salvar">
+                    <input type="reset" value="Cancelar" onclick="location.href = '{% url 'index' %}'">
+                </form>
+                </div>
+        </div>
+    </div>
+</div>
+{% include 'partials/_footer.html' %}
+{% endblock %}
+
