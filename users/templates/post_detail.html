@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_header.html' %}
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Postagem</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>Postado por: {{post.user}}</p>
+                                    <p>Título: {{post.titulo}}</p>
+                                    <p>Conteúdo: {{post.conteudo}} </p>
+                                    <p>Postado em: {{post.criado}}</p>
+                                </div>
+                            </div>
+
+{% include 'partials/_footer.html' %}
+{% endblock %}
+

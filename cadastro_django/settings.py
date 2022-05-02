@@ -202,4 +202,4 @@ ACCOUNT_EMAIL_REQUIRED = False
 # Email único
 ACCOUNT_UNIQUE_EMAIL = True
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'core:index'

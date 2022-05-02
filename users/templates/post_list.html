@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_header.html' %}
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Postagens de {{ user.first_name }}</h6>
+                                    <input type="submit" value="Postar" onclick="location.href = '{% url 'users:post_create' %}'">
+                                </div>
+            <div id="layoutSidenav_content">
+
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                    <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+								{% if post_list %}
+
+                                    <thead>
+                                        <tr role="row">
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Criado em</th>
+											<th></th>
+                                    </thead>
+                                    <tbody>
+										{% for post in post_list %}
+                                        <tr>
+                                            <th scope="row">{{post.id}}</th>
+                                            <td>{{ post.titulo }}</td>
+                                            <td>{{ post.criado }}</td>
+
+                                            <td><a href="{% url 'users:post_detail' pk=post.id %}" class="btn btn-info btn-icon-split">
+                                                <span class="icon text-white-50">                                                </span>
+                                                <span class="text">Detalhar</span></a></td>
+
+
+                                        </tr>
+										{% endfor %}
+                                    </tbody>
+                                </table>
+								{% else %}
+								<p>Ainda não há postagens</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+
+
+            </div>
+{% include 'partials/_footer.html' %}
+{% endblock %}
+

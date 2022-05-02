@@ -5,8 +5,10 @@
 
 {% include 'partials/_header.html' %}
 <div>
-<h1>Adicionar Cliente</h1>
-
+<h1>Cliente</h1>
+    <div class="col-lg-8 col-xlg-9 col-md-7">
+        <div class="card">
+            <div class="card-body">
 <form method="post" action=".">
     {% csrf_token %}
     {{ form|crispy }}

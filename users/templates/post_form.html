@@ -5,16 +5,15 @@
 
 {% include 'partials/_header.html' %}
 <div>
-<h1>Produto</h1>
+<h1>Post</h1>
     <div class="col-lg-8 col-xlg-9 col-md-7">
         <div class="card">
             <div class="card-body">
-
 <form method="post" action=".">
     {% csrf_token %}
     {{ form|crispy }}
     <input type="submit" value="Salvar">
-    <input type="reset" value="Cancelar" onclick="location.href = '{% url 'produtos:list' %}'">
+    <input type="reset" value="Cancelar" onclick="location.href = '{% url 'core:index' %}'">
 </form>
 </div>
 {% include 'partials/_footer.html' %}
