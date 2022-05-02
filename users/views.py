@@ -1,44 +1,22 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
+from django.views.generic import UpdateView, DetailView
 
 from users.models import User
 
 
 
 
-def profile(request, user_id):
-    if request.user.is_authenticated:
-        user = get_object_or_404(User, pk=user_id)
-
-        context = {
-            'user': user
-        }
-        return render(request, 'users/profile.html', context)
-
-    else:
-        return redirect('index'),
-
-def completa_cadastro(request, user_id):
-        user = get_object_or_404(User, pk=user_id)
-        dados = {
-            'user': user
-        }
-        return render(request, 'users/completa_cadastro.html', dados)
+class UserDetail(DetailView):
+    model = User
+    queryset = User.objects.all()
+    template_name = 'user_detail.html'
 
 
-def atualiza_cadastro(request, user_id):
-    if request.user.is_authenticated:
-        if request.method == 'POST':
-            user_id = request.POST['user_id']
-            u = User.objects.get(pk=user_id)
-            u.first_name = request.POST['first_name']
-            u.last_name = request.POST['last_name']
-            u.email = request.POST['email']
-            u.telefone = request.POST['telefone']
-            u.cep = request.POST['cep']
-            u.endereco = request.POST['endereco']
-            if 'foto_user' in request.FILES:
-                u.foto_user = request.FILES['foto_user']
-            u.save()
-            return render(request, 'users/completa_cadastro.html')
-        else:
-            return redirect('index'),
+
+class UserUpdate(UpdateView):
+    model = User
+    fields = ['first_name', 'last_name', 'telefone', 'cep', 'endereco', 'uf', 'cidade', 'foto_user']
+    success_url = reverse_lazy('index')
+    template_name = 'user_form.html'
+

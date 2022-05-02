@@ -11,6 +11,8 @@ psycopg2-binary = "*"
 django-localflavor = "*"
 django-crispy-forms = "*"
 django-allauth = "*"
+pillow = "*"
+coverage = "*"
 
 [dev-packages]
 

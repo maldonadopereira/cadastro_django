@@ -23,13 +23,13 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile' user.id %}">
+                <a class="nav-link" href="{% url 'users:detail' user.id %}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Perfil</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'completa_cadastro' user.id %}">
+                <a class="nav-link" href="{% url 'users:update' user.id %}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Completar Cadastro</span></a>
             </li>
@@ -71,7 +71,7 @@
             <hr class="sidebar-divider">
 
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">
+                    <a class="nav-link" href="{% url 'account_logout' %}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Logout</span></a>
             </li>

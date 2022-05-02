@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'clientes',
     'fornecedores',
     'produtos',
+    'vendas'
 
 ]
 
@@ -76,8 +77,7 @@ ROOT_URLCONF = 'cadastro_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),
-                 os.path.join(BASE_DIR, 'templates/account'),
+        'DIRS': ['templates', 'clientes/templates/', 'fornecedores/templates', 'produtos/templates', 'core/templates', 'users/templates'
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'cadastro_django.wsgi.application'
 
 
 # Database Heroku
-DATABASES = {
+'''DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'dba10us8t196hv',
@@ -107,9 +107,9 @@ DATABASES = {
             'PORT': '5432',
         }
     }
-
+'''
 # Database Local
-'''DATABASES = {
+DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'cadastro',
@@ -119,7 +119,7 @@ DATABASES = {
             'PORT': '5432',
         }
     }
-'''
+
 AUTHENTICATION_BACKENDS = [
 
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -167,6 +167,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'cadastro_django/static')
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Media Files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 
 
 # Default primary key field type
